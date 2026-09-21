@@ -27,13 +27,6 @@ class SinglyLinkedList:
                 temp = temp.next
         print("Target node not found!")
 
-
-
-
-
-
-
-
     def insert_at_end(self, data):
         new_node = Node(data)
         temp = self.head
@@ -44,6 +37,20 @@ class SinglyLinkedList:
             temp = temp.next
         temp.next = new_node
 
+    def delete(self, value):
+        if self.head is None:
+            print("List is Empty")
+            return
+        if self.head.data == value:
+            self.head = self.head.next
+        else:
+            temp = self.head
+            while temp.next is not None:
+                if temp.next.data == value:
+                    temp.next = temp.next.next
+                    return
+                temp = temp.next
+            print("Node is not present")
 
 
     def transversal(self):
@@ -56,5 +63,5 @@ ll = SinglyLinkedList()
 ll.insert_at_beg(30)
 ll.insert_at_beg(20)
 ll.insert_at_beg(10)
-
+ll.delete(10)
 ll.transversal()
